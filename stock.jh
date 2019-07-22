@@ -1,0 +1,32 @@
+
+entity Categorie {
+	categorieName String required,
+    categorieDescription String required,
+    dateCreation LocalDate required 
+}
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity Produit {
+	produitNom String required,
+    produitDescription String required,
+    produitPrix Double required,
+    produitStock Integer required,
+}
+
+entity Achat {
+	achatDate LocalDate required,
+    achatDescription String required,
+    achatQuantite Integer required,
+}
+
+// relations
+relationship OneToMany {
+  Categorie{produit} to Produit{owner}
+}
+
+relationship ManyToMany {
+  Achat{produit} to Produit{owner}
+}

@@ -1,0 +1,25 @@
+{
+  "gestionStockApp": {
+    "achat": {
+      "home": {
+        "title": "Achats",
+        "createLabel": "Créer un nouveau Achat",
+        "createOrEditLabel": "Créer ou éditer un Achat",
+        "notFound": "Aucun Achat trouvé"
+      },
+      "created": "Un nouveau Achat a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Achat avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Achat avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Achat {{ id }} ?"
+      },
+      "detail": {
+        "title": "Achat"
+      },
+      "achatDate": "Achat Date",
+      "achatDescription": "Achat Description",
+      "achatQuantite": "Achat Quantite",
+      "produit": "Produit"
+    }
+  }
+}
