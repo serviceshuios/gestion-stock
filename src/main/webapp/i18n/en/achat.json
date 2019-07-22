@@ -1,0 +1,25 @@
+{
+  "gestionStockApp": {
+    "achat": {
+      "home": {
+        "title": "Achats",
+        "createLabel": "Create a new Achat",
+        "createOrEditLabel": "Create or edit a Achat",
+        "notFound": "No Achat found"
+      },
+      "created": "A new Achat is created with identifier {{ param }}",
+      "updated": "A Achat is updated with identifier {{ param }}",
+      "deleted": "A Achat is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Achat {{ id }}?"
+      },
+      "detail": {
+        "title": "Achat"
+      },
+      "achatDate": "Achat Date",
+      "achatDescription": "Achat Description",
+      "achatQuantite": "Achat Quantite",
+      "produit": "Produit"
+    }
+  }
+}

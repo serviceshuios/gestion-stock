@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-produit-heading" jhiTranslate="gestionStockApp.produit.home.createOrEditLabel">Create or edit a Produit</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionStockApp.produit.produitNom" for="field_produitNom">Produit Nom</label>
+                    <input type="text" class="form-control" name="produitNom" id="field_produitNom"
+                           formControlName="produitNom"/>
+                    <div *ngIf="editForm.get('produitNom').invalid && (editForm.get('produitNom').dirty || editForm.get('produitNom').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('produitNom').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionStockApp.produit.produitDescription" for="field_produitDescription">Produit Description</label>
+                    <input type="text" class="form-control" name="produitDescription" id="field_produitDescription"
+                           formControlName="produitDescription"/>
+                    <div *ngIf="editForm.get('produitDescription').invalid && (editForm.get('produitDescription').dirty || editForm.get('produitDescription').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('produitDescription').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionStockApp.produit.produitPrix" for="field_produitPrix">Produit Prix</label>
+                    <input type="number" class="form-control" name="produitPrix" id="field_produitPrix"
+                           formControlName="produitPrix"/>
+                    <div *ngIf="editForm.get('produitPrix').invalid && (editForm.get('produitPrix').dirty || editForm.get('produitPrix').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('produitPrix').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('produitPrix')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionStockApp.produit.produitStock" for="field_produitStock">Produit Stock</label>
+                    <input type="number" class="form-control" name="produitStock" id="field_produitStock"
+                           formControlName="produitStock"/>
+                    <div *ngIf="editForm.get('produitStock').invalid && (editForm.get('produitStock').dirty || editForm.get('produitStock').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('produitStock').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('produitStock')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gestionStockApp.produit.owner" for="field_owner">Owner</label>
+                    <select class="form-control" id="field_owner" name="owner" formControlName="owner">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="categorieOption.id === editForm.get('owner').value?.id ? editForm.get('owner').value : categorieOption" *ngFor="let categorieOption of categories; trackBy: trackCategorieById">{{categorieOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
